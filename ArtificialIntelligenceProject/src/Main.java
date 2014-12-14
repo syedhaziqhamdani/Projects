@@ -2,10 +2,12 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+
 import java.awt.Color;
 
 
@@ -409,6 +411,12 @@ public class Main extends JFrame {
 		
 		for (int i = 0; i < grid.length; i++) {
 			for (int j = 0; j < grid.length; j++) {
+				if(j==6){
+					if (grid[i][6].toString().equals("")) {
+						JOptionPane.showConfirmDialog(contentPane, grid[i][6].toString());
+					}
+
+				}
 				grid[i][j].setText("Test.");
 			}
 		}
