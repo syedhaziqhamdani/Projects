@@ -470,42 +470,35 @@ public class Main extends JFrame {
 //			}
 //		}
 	}
-	static void humanMove(int columnNumber){
-//		JOptionPane.showConfirmDialog(contentPane, "Inside Method.");
-		for (int i = 0; i <= 5; i++) {
-			if (grid.length-1 == i && grid[i][columnNumber].getText().isEmpty()) {
-				grid[i][columnNumber].setBackground(Color.BLUE);
-				grid[i][columnNumber].setText(" ");
-			} 
-			if (!(grid.length-1 == i)) {
-				if (grid[i+1][columnNumber].getText() == " ") {
-					grid[i][columnNumber].setBackground(Color.BLUE);
-					grid[i][columnNumber].setText(" ");
+	static void isFirstMove(){
+		for (int i = 0; i < scoreBoard.length; i++) {
+			for (int j = 0; j < scoreBoard.length; j++) {
+				if (scoreBoard[i][j]==-1) {
+					firstMove = true;
+				} else {
+					firstMove = false;
 				}
 			}
-			
-			
-//			
-//			if (grid[i][columnNumber].getText().isEmpty()) {
-//				else{ if(grid[i][columnNumber].getText() == " ") {
-//					grid[i-1][columnNumber].setBackground(Color.BLUE);
-//				}}
-//			}
-			
 		}
-		
-		
-//		while (grid[row][columnNumber].toString().equals("")) {
-//			
-//			row++;
-//		}
-//		
-//		for (int i = 0; i < 6; i++) {
-//			JOptionPane.showConfirmDialog(contentPane, "Inside Meto1");
-//			if (grid[i][columnNumber].toString().equals("")) {
-//				JOptionPane.showConfirmDialog(contentPane, "Inside Meto2");
-//				grid[i][columnNumber].setText("Human.");
-//			}
-//		}
+	}
+	static void humanMove(int columnNumber){
+		boolean flag = true;
+		isFirstMove();
+		while (flag) {
+			for (int i = 0; i <= 5; i++) {
+				if (grid.length - 1 == i && grid[i][columnNumber].getText().isEmpty() && firstMove) {
+					grid[i][columnNumber].setBackground(Color.BLUE);
+					grid[i][columnNumber].setText(" ");
+					flag = false;
+				} else if ((grid.length - 1 != i) && !firstMove) {
+					if (grid[i + 1][columnNumber].getText().isEmpty()) {
+						grid[i][columnNumber].setBackground(Color.BLUE);
+						grid[i][columnNumber].setText(" ");
+						flag = false;
+					}
+				}
+
+			}
+		}
 	}
 }
