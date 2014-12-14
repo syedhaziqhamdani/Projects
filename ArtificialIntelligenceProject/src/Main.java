@@ -26,13 +26,13 @@ public class Main extends JFrame {
 	private JTextField b14;
 	private JTextField b15;
 	private JTextField b16;
-	private JTextField textField_14;
-	private JTextField textField_15;
-	private JTextField textField_16;
-	private JTextField textField_17;
-	private JTextField textField_18;
-	private JTextField textField_19;
-	private JTextField textField_20;
+	private JTextField b30;
+	private JTextField b31;
+	private JTextField b32;
+	private JTextField b33;
+	private JTextField b34;
+	private JTextField b35;
+	private JTextField b36;
 	private JTextField b20;
 	private JTextField b21;
 	private JTextField b22;
@@ -40,20 +40,20 @@ public class Main extends JFrame {
 	private JTextField b24;
 	private JTextField b25;
 	private JTextField b26;
-	private JTextField textField_28;
-	private JTextField textField_29;
-	private JTextField textField_30;
-	private JTextField textField_31;
-	private JTextField textField_32;
-	private JTextField textField_33;
-	private JTextField textField_34;
-	private JTextField textField_35;
-	private JTextField textField_36;
-	private JTextField textField_37;
-	private JTextField textField_38;
-	private JTextField textField_39;
-	private JTextField textField_40;
-	private JTextField textField_41;
+	private JTextField b50;
+	private JTextField b51;
+	private JTextField b52;
+	private JTextField b53;
+	private JTextField b54;
+	private JTextField b55;
+	private JTextField b56;
+	private JTextField b40;
+	private JTextField b41;
+	private JTextField b42;
+	private JTextField b43;
+	private JTextField b44;
+	private JTextField b45;
+	private JTextField b46;
 
 	/**
 	 * Launch the application.
@@ -195,47 +195,47 @@ public class Main extends JFrame {
 		b16.setBounds(607, 76, 86, 20);
 		contentPane.add(b16);
 		
-		textField_14 = new JTextField();
-		textField_14.setEnabled(false);
-		textField_14.setColumns(10);
-		textField_14.setBounds(10, 138, 86, 20);
-		contentPane.add(textField_14);
+		b30 = new JTextField();
+		b30.setEnabled(false);
+		b30.setColumns(10);
+		b30.setBounds(10, 138, 86, 20);
+		contentPane.add(b30);
 		
-		textField_15 = new JTextField();
-		textField_15.setEnabled(false);
-		textField_15.setColumns(10);
-		textField_15.setBounds(109, 138, 86, 20);
-		contentPane.add(textField_15);
+		b31 = new JTextField();
+		b31.setEnabled(false);
+		b31.setColumns(10);
+		b31.setBounds(109, 138, 86, 20);
+		contentPane.add(b31);
 		
-		textField_16 = new JTextField();
-		textField_16.setEnabled(false);
-		textField_16.setColumns(10);
-		textField_16.setBounds(211, 138, 86, 20);
-		contentPane.add(textField_16);
+		b32 = new JTextField();
+		b32.setEnabled(false);
+		b32.setColumns(10);
+		b32.setBounds(211, 138, 86, 20);
+		contentPane.add(b32);
 		
-		textField_17 = new JTextField();
-		textField_17.setEnabled(false);
-		textField_17.setColumns(10);
-		textField_17.setBounds(310, 138, 86, 20);
-		contentPane.add(textField_17);
+		b33 = new JTextField();
+		b33.setEnabled(false);
+		b33.setColumns(10);
+		b33.setBounds(310, 138, 86, 20);
+		contentPane.add(b33);
 		
-		textField_18 = new JTextField();
-		textField_18.setEnabled(false);
-		textField_18.setColumns(10);
-		textField_18.setBounds(406, 138, 86, 20);
-		contentPane.add(textField_18);
+		b34 = new JTextField();
+		b34.setEnabled(false);
+		b34.setColumns(10);
+		b34.setBounds(406, 138, 86, 20);
+		contentPane.add(b34);
 		
-		textField_19 = new JTextField();
-		textField_19.setEnabled(false);
-		textField_19.setColumns(10);
-		textField_19.setBounds(508, 138, 86, 20);
-		contentPane.add(textField_19);
+		b35 = new JTextField();
+		b35.setEnabled(false);
+		b35.setColumns(10);
+		b35.setBounds(508, 138, 86, 20);
+		contentPane.add(b35);
 		
-		textField_20 = new JTextField();
-		textField_20.setEnabled(false);
-		textField_20.setColumns(10);
-		textField_20.setBounds(607, 138, 86, 20);
-		contentPane.add(textField_20);
+		b36 = new JTextField();
+		b36.setEnabled(false);
+		b36.setColumns(10);
+		b36.setBounds(607, 138, 86, 20);
+		contentPane.add(b36);
 		
 		b20 = new JTextField();
 		b20.setEnabled(false);
@@ -279,88 +279,88 @@ public class Main extends JFrame {
 		b26.setBounds(607, 107, 86, 20);
 		contentPane.add(b26);
 		
-		textField_28 = new JTextField();
-		textField_28.setEnabled(false);
-		textField_28.setColumns(10);
-		textField_28.setBounds(10, 200, 86, 20);
-		contentPane.add(textField_28);
+		b50 = new JTextField();
+		b50.setEnabled(false);
+		b50.setColumns(10);
+		b50.setBounds(10, 200, 86, 20);
+		contentPane.add(b50);
 		
-		textField_29 = new JTextField();
-		textField_29.setEnabled(false);
-		textField_29.setColumns(10);
-		textField_29.setBounds(109, 200, 86, 20);
-		contentPane.add(textField_29);
+		b51 = new JTextField();
+		b51.setEnabled(false);
+		b51.setColumns(10);
+		b51.setBounds(109, 200, 86, 20);
+		contentPane.add(b51);
 		
-		textField_30 = new JTextField();
-		textField_30.setEnabled(false);
-		textField_30.setColumns(10);
-		textField_30.setBounds(211, 200, 86, 20);
-		contentPane.add(textField_30);
+		b52 = new JTextField();
+		b52.setEnabled(false);
+		b52.setColumns(10);
+		b52.setBounds(211, 200, 86, 20);
+		contentPane.add(b52);
 		
-		textField_31 = new JTextField();
-		textField_31.setEnabled(false);
-		textField_31.setColumns(10);
-		textField_31.setBounds(310, 200, 86, 20);
-		contentPane.add(textField_31);
+		b53 = new JTextField();
+		b53.setEnabled(false);
+		b53.setColumns(10);
+		b53.setBounds(310, 200, 86, 20);
+		contentPane.add(b53);
 		
-		textField_32 = new JTextField();
-		textField_32.setEnabled(false);
-		textField_32.setColumns(10);
-		textField_32.setBounds(406, 200, 86, 20);
-		contentPane.add(textField_32);
+		b54 = new JTextField();
+		b54.setEnabled(false);
+		b54.setColumns(10);
+		b54.setBounds(406, 200, 86, 20);
+		contentPane.add(b54);
 		
-		textField_33 = new JTextField();
-		textField_33.setEnabled(false);
-		textField_33.setColumns(10);
-		textField_33.setBounds(508, 200, 86, 20);
-		contentPane.add(textField_33);
+		b55 = new JTextField();
+		b55.setEnabled(false);
+		b55.setColumns(10);
+		b55.setBounds(508, 200, 86, 20);
+		contentPane.add(b55);
 		
-		textField_34 = new JTextField();
-		textField_34.setEnabled(false);
-		textField_34.setColumns(10);
-		textField_34.setBounds(607, 200, 86, 20);
-		contentPane.add(textField_34);
+		b56 = new JTextField();
+		b56.setEnabled(false);
+		b56.setColumns(10);
+		b56.setBounds(607, 200, 86, 20);
+		contentPane.add(b56);
 		
-		textField_35 = new JTextField();
-		textField_35.setEnabled(false);
-		textField_35.setColumns(10);
-		textField_35.setBounds(10, 169, 86, 20);
-		contentPane.add(textField_35);
+		b40 = new JTextField();
+		b40.setEnabled(false);
+		b40.setColumns(10);
+		b40.setBounds(10, 169, 86, 20);
+		contentPane.add(b40);
 		
-		textField_36 = new JTextField();
-		textField_36.setEnabled(false);
-		textField_36.setColumns(10);
-		textField_36.setBounds(109, 169, 86, 20);
-		contentPane.add(textField_36);
+		b41 = new JTextField();
+		b41.setEnabled(false);
+		b41.setColumns(10);
+		b41.setBounds(109, 169, 86, 20);
+		contentPane.add(b41);
 		
-		textField_37 = new JTextField();
-		textField_37.setEnabled(false);
-		textField_37.setColumns(10);
-		textField_37.setBounds(211, 169, 86, 20);
-		contentPane.add(textField_37);
+		b42 = new JTextField();
+		b42.setEnabled(false);
+		b42.setColumns(10);
+		b42.setBounds(211, 169, 86, 20);
+		contentPane.add(b42);
 		
-		textField_38 = new JTextField();
-		textField_38.setEnabled(false);
-		textField_38.setColumns(10);
-		textField_38.setBounds(310, 169, 86, 20);
-		contentPane.add(textField_38);
+		b43 = new JTextField();
+		b43.setEnabled(false);
+		b43.setColumns(10);
+		b43.setBounds(310, 169, 86, 20);
+		contentPane.add(b43);
 		
-		textField_39 = new JTextField();
-		textField_39.setEnabled(false);
-		textField_39.setColumns(10);
-		textField_39.setBounds(406, 169, 86, 20);
-		contentPane.add(textField_39);
+		b44 = new JTextField();
+		b44.setEnabled(false);
+		b44.setColumns(10);
+		b44.setBounds(406, 169, 86, 20);
+		contentPane.add(b44);
 		
-		textField_40 = new JTextField();
-		textField_40.setEnabled(false);
-		textField_40.setColumns(10);
-		textField_40.setBounds(508, 169, 86, 20);
-		contentPane.add(textField_40);
+		b45 = new JTextField();
+		b45.setEnabled(false);
+		b45.setColumns(10);
+		b45.setBounds(508, 169, 86, 20);
+		contentPane.add(b45);
 		
-		textField_41 = new JTextField();
-		textField_41.setEnabled(false);
-		textField_41.setColumns(10);
-		textField_41.setBounds(607, 169, 86, 20);
-		contentPane.add(textField_41);
+		b46 = new JTextField();
+		b46.setEnabled(false);
+		b46.setColumns(10);
+		b46.setBounds(607, 169, 86, 20);
+		contentPane.add(b46);
 	}
 }
