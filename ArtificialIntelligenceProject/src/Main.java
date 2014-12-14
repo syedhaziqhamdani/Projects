@@ -19,6 +19,8 @@ public class Main extends JFrame {
 
 	private static JPanel contentPane;
 	private static JTextField[][] grid = new JTextField[6][7];
+	private static int[][] scoreBoard = new int[6][7];
+	private static boolean firstMove = false;
 //	private JTextField b00;
 //	private JTextField b01;
 //	private JTextField b02;
@@ -82,7 +84,49 @@ public class Main extends JFrame {
 	 * Create the frame.
 	 */
 	public Main() {
-		grid[0][0] = new JTextField("a");
+		scoreBoard[0][0] = -1;
+		scoreBoard[0][1] = -1;
+		scoreBoard[0][2] = -1;
+		scoreBoard[0][3] = -1;
+		scoreBoard[0][4] = -1;
+		scoreBoard[0][5] = -1;
+		scoreBoard[0][6] = -1;
+		scoreBoard[1][0] = -1;
+		scoreBoard[1][1] = -1;
+		scoreBoard[1][2] = -1;
+		scoreBoard[1][3] = -1;
+		scoreBoard[1][4] = -1;
+		scoreBoard[1][5] = -1;
+		scoreBoard[1][6] = -1;
+		scoreBoard[2][0] = -1;
+		scoreBoard[2][1] = -1;
+		scoreBoard[2][2] = -1;
+		scoreBoard[2][3] = -1;
+		scoreBoard[2][4] = -1;
+		scoreBoard[2][5] = -1;
+		scoreBoard[2][6] = -1;
+		scoreBoard[3][0] = -1;
+		scoreBoard[3][1] = -1;
+		scoreBoard[3][2] = -1;
+		scoreBoard[3][3] = -1;
+		scoreBoard[3][4] = -1;
+		scoreBoard[3][5] = -1;
+		scoreBoard[3][6] = -1;
+		scoreBoard[4][0] = -1;
+		scoreBoard[4][1] = -1;
+		scoreBoard[4][2] = -1;
+		scoreBoard[4][3] = -1;
+		scoreBoard[4][4] = -1;
+		scoreBoard[4][5] = -1;
+		scoreBoard[4][6] = -1;
+		scoreBoard[5][0] = -1;
+		scoreBoard[5][1] = -1;
+		scoreBoard[5][2] = -1;
+		scoreBoard[5][3] = -1;
+		scoreBoard[5][4] = -1;
+		scoreBoard[5][5] = -1;
+		scoreBoard[5][6] = -1;
+		grid[0][0] = new JTextField();
 		grid[0][1] = new JTextField();
 		grid[0][2] = new JTextField();
 		grid[0][3] = new JTextField();
@@ -427,14 +471,26 @@ public class Main extends JFrame {
 //		}
 	}
 	static void humanMove(int columnNumber){
-		JOptionPane.showConfirmDialog(contentPane, "Inside Method.");
+//		JOptionPane.showConfirmDialog(contentPane, "Inside Method.");
 		for (int i = 0; i <= 5; i++) {
-			
-			if (grid[i][columnNumber].getText().isEmpty()) {
-				if (grid.length-1 == i) {
+			if (grid.length-1 == i && grid[i][columnNumber].getText().isEmpty()) {
+				grid[i][columnNumber].setBackground(Color.BLUE);
+				grid[i][columnNumber].setText(" ");
+			} 
+			if (!(grid.length-1 == i)) {
+				if (grid[i+1][columnNumber].getText() == " ") {
 					grid[i][columnNumber].setBackground(Color.BLUE);
+					grid[i][columnNumber].setText(" ");
 				}
 			}
+			
+			
+//			
+//			if (grid[i][columnNumber].getText().isEmpty()) {
+//				else{ if(grid[i][columnNumber].getText() == " ") {
+//					grid[i-1][columnNumber].setBackground(Color.BLUE);
+//				}}
+//			}
 			
 		}
 		
