@@ -556,6 +556,7 @@ public class Main extends JFrame {
 		grid[emptyCell][columnNumber].setBackground(Color.BLUE);
 		grid[emptyCell][columnNumber].setText(" ");
 		scoreBoard[emptyCell][columnNumber] = 1;
+		checkWinner();
 		computerMove(columnNumber);
 		// boolean flag = true;
 		// isFirstMove();
@@ -587,5 +588,22 @@ public class Main extends JFrame {
 		grid[emptyCell][columnNumber].setBackground(Color.RED);
 		grid[emptyCell][columnNumber].setText(" ");
 		scoreBoard[emptyCell][columnNumber] = 2;
+		checkWinner();
+	}
+	static void checkWinner(){
+		for (int i = 0; i < scoreBoard.length; i++) {
+			for (int j = 0; j < scoreBoard.length; j++) {
+				if (scoreBoard[i][j]==1&&scoreBoard[i][j+1]==1&&scoreBoard[i][j+2]==1&&scoreBoard[i][j+3]==1) {
+					JOptionPane.showMessageDialog(null, "WIner detected"+"First Loop");
+				}
+			}
+		}
+//		for (int i = 0; i < scoreBoard.length; i++) {
+//			for (int j = 0; j < scoreBoard.length; j++) {
+//				if (scoreBoard[i][j]==1&&scoreBoard[i+1][j]==1&&scoreBoard[i+2][j]==1&&scoreBoard[i+3][j]==1) {
+//					JOptionPane.showMessageDialog(null, "WIner detected"+"Second loop");
+//				}
+//			}
+//		}
 	}
 }
