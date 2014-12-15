@@ -187,26 +187,56 @@ public class Main extends JFrame {
 		contentPane.add(columnOneButton);
 
 		JButton columnTwoButton = new JButton("Drop");
+		columnTwoButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				humanMove(1);
+			}
+		});
 		columnTwoButton.setBounds(109, 11, 89, 23);
 		contentPane.add(columnTwoButton);
 
 		JButton columnThreeButton = new JButton("Drop");
+		columnThreeButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				humanMove(2);
+			}
+		});
 		columnThreeButton.setBounds(208, 11, 89, 23);
 		contentPane.add(columnThreeButton);
 
 		JButton columnFourButton = new JButton("Drop");
+		columnFourButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				humanMove(3);
+			}
+		});
 		columnFourButton.setBounds(307, 11, 89, 23);
 		contentPane.add(columnFourButton);
 
 		JButton columnFiveButton = new JButton("Drop");
+		columnFiveButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				humanMove(4);
+			}
+		});
 		columnFiveButton.setBounds(406, 11, 89, 23);
 		contentPane.add(columnFiveButton);
 
 		JButton columnSixButton = new JButton("Drop");
+		columnSixButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				humanMove(5);
+			}
+		});
 		columnSixButton.setBounds(505, 11, 89, 23);
 		contentPane.add(columnSixButton);
 
 		JButton columnSevenButton = new JButton("Drop");
+		columnSevenButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				humanMove(6);
+			}
+		});
 		columnSevenButton.setBounds(604, 11, 89, 23);
 		contentPane.add(columnSevenButton);
 
@@ -525,6 +555,8 @@ public class Main extends JFrame {
 		}
 		grid[emptyCell][columnNumber].setBackground(Color.BLUE);
 		grid[emptyCell][columnNumber].setText(" ");
+		scoreBoard[emptyCell][columnNumber] = 1;
+		computerMove(columnNumber);
 		// boolean flag = true;
 		// isFirstMove();
 		// while (flag) {
@@ -544,5 +576,16 @@ public class Main extends JFrame {
 		//
 		// }
 		// }
+	}
+	static void computerMove(int columnNumber){
+		int emptyCell = 0;
+		for (int i = 0; i < 6; i++) {
+			if (grid[i][columnNumber].getText().isEmpty()) {
+				emptyCell = i;
+			}	
+		}
+		grid[emptyCell][columnNumber].setBackground(Color.RED);
+		grid[emptyCell][columnNumber].setText(" ");
+		scoreBoard[emptyCell][columnNumber] = 2;
 	}
 }
