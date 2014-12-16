@@ -13,6 +13,7 @@ import com.sun.org.apache.xpath.internal.operations.Equals;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.Random;
 
 public class Main extends JFrame {
 
@@ -20,6 +21,7 @@ public class Main extends JFrame {
 	private static JTextField[][] grid = new JTextField[6][7];
 	private static int[][] scoreBoard = new int[6][7];
 	private static boolean firstMove = false;
+	private static boolean humanWin = false;
 
 	// private JTextField b00;
 	// private JTextField b01;
@@ -556,7 +558,7 @@ public class Main extends JFrame {
 		grid[emptyCell][columnNumber].setBackground(Color.BLUE);
 		grid[emptyCell][columnNumber].setText(" ");
 		scoreBoard[emptyCell][columnNumber] = 1;
-		checkWinner();
+		humanWin = checkWinnerHuman();
 		computerMove(columnNumber);
 		// boolean flag = true;
 		// isFirstMove();
@@ -579,29 +581,72 @@ public class Main extends JFrame {
 		// }
 	}
 	static void computerMove(int columnNumber){
-		int emptyCell = 0;
-		for (int i = 0; i < 6; i++) {
-			if (grid[i][columnNumber].getText().isEmpty()) {
-				emptyCell = i;
-			}	
+		if (!humanWin) {
+			int emptyCell = 0;
+			for (int i = 0; i < 6; i++) {
+				if (grid[i][columnNumber].getText().isEmpty()) {
+					emptyCell = i;
+				}	
+			}
+			grid[emptyCell][columnNumber].setBackground(Color.RED);
+			grid[emptyCell][columnNumber].setText(" ");
+			scoreBoard[emptyCell][columnNumber] = 2;
 		}
-		grid[emptyCell][columnNumber].setBackground(Color.RED);
-		grid[emptyCell][columnNumber].setText(" ");
-		scoreBoard[emptyCell][columnNumber] = 2;
-		checkWinner();
+//		checkWinnerHuman();
 	}
-	static void checkWinner(){
-		for (int i = 0; i < scoreBoard.length; i++) {
-			for (int j = 0; j < scoreBoard.length; j++) {
+	static void clearBoard(){
+		for (int i = 0; i < grid.length; i++) {
+			for (int j = 0; j < grid.length; j++) {
+				grid[i][j].setBackground(Color.WHITE);
+				grid[i][j].setText(null);
+				scoreBoard[i][j] = -1;
+			}
+		}
+	}
+	static boolean horizontalCheck(){
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 7; j++) {
 				if (scoreBoard[i][j]==1&&scoreBoard[i][j+1]==1&&scoreBoard[i][j+2]==1&&scoreBoard[i][j+3]==1) {
-					JOptionPane.showMessageDialog(null, "WIner detected"+"First Loop");
+					JOptionPane.showMessageDialog(null, "You Win");
+					clearBoard();
+					return true;
 				}
 			}
 		}
-//		for (int i = 0; i < scoreBoard.length; i++) {
-//			for (int j = 0; j < scoreBoard.length; j++) {
+		return false;
+	}
+	static boolean verticalCheck(){
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 7; j++) {
+				if (scoreBoard[i][j]==1&&scoreBoard[i+1][j]==1&&scoreBoard[i+2][j]==1&&scoreBoard[i+3][j]==1) {
+					JOptionPane.showMessageDialog(null, "You Win");
+					clearBoard();
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	static boolean checkWinnerHuman(){
+		
+//		for (int i = 0; i < 6; i++) {
+//			for (int j = 0; j < 7; j++) {
+//				if (scoreBoard[i][j]==1&&scoreBoard[i][j+1]==1&&scoreBoard[i][j+2]==1&&scoreBoard[i][j+3]==1) {
+//					JOptionPane.showMessageDialog(null, "You Win");
+//					clearBoard();
+//					return true;
+//				}				
+//			}
+//			
+//		}
+		
+		return (horizontalCheck()||verticalCheck()) ? true : false;
+		
+//		for (int i = 0; i < 6; i++) {
+//			for (int j = 0; j < 7; j++) {
 //				if (scoreBoard[i][j]==1&&scoreBoard[i+1][j]==1&&scoreBoard[i+2][j]==1&&scoreBoard[i+3][j]==1) {
 //					JOptionPane.showMessageDialog(null, "WIner detected"+"Second loop");
+//					return true;
 //				}
 //			}
 //		}
