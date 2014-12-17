@@ -32,8 +32,8 @@
             this.username = new System.Windows.Forms.MaskedTextBox();
             this.pass = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,15 +76,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "LMS Login";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 61);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Password";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -93,6 +84,15 @@
             this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Username";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 61);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Password";
             // 
             // Login
             // 

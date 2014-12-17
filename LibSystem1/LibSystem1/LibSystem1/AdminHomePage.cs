@@ -14,6 +14,9 @@ namespace LibSystem1
     {
         public AdminHomePage()
         {
+
+            Login s = new Login();
+            s.Hide();
             InitializeComponent();
         }
 
@@ -44,6 +47,12 @@ namespace LibSystem1
         private void AdminHomePage_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            adminUserReg a = new adminUserReg();
+            a.ShowDialog();
         }
     }
 }

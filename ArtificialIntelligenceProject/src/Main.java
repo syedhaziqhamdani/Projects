@@ -21,7 +21,7 @@ public class Main extends JFrame {
 	private static JTextField[][] grid = new JTextField[6][7];
 	private static int[][] scoreBoard = new int[6][7];
 	private static boolean firstMove = false;
-	private static boolean humanWin = false;
+	private static boolean humanWin = true;
 
 	// private JTextField b00;
 	// private JTextField b01;
@@ -183,6 +183,7 @@ public class Main extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				// JOptionPane.showConfirmDialog(contentPane, "Clicked");
 				humanMove(0);
+//				computerMove(1);
 			}
 		});
 		columnOneButton.setBounds(10, 11, 89, 23);
@@ -582,15 +583,17 @@ public class Main extends JFrame {
 	}
 	static void computerMove(int columnNumber){
 		if (!humanWin) {
+			Random rand = new Random();
+		 	int randomNum = rand.nextInt((6 - 0) + 1) + 0;
 			int emptyCell = 0;
 			for (int i = 0; i < 6; i++) {
-				if (grid[i][columnNumber].getText().isEmpty()) {
+				if (grid[i][randomNum].getText().isEmpty()) {
 					emptyCell = i;
 				}	
 			}
-			grid[emptyCell][columnNumber].setBackground(Color.RED);
-			grid[emptyCell][columnNumber].setText(" ");
-			scoreBoard[emptyCell][columnNumber] = 2;
+			grid[emptyCell][randomNum].setBackground(Color.RED);
+			grid[emptyCell][randomNum].setText(" ");
+			scoreBoard[emptyCell][randomNum] = 2;
 		}
 //		checkWinnerHuman();
 	}
@@ -640,7 +643,7 @@ public class Main extends JFrame {
 //			
 //		}
 		
-		return (horizontalCheck()||verticalCheck()) ? true : false;
+		return (horizontalCheck()) ? true : false;
 		
 //		for (int i = 0; i < 6; i++) {
 //			for (int j = 0; j < 7; j++) {

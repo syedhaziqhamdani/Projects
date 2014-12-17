@@ -27,3 +27,4 @@ C:\Users\SyedHaziq\Downloads\LibSystem1\LibSystem1\LibSystem1\obj\Debug\LibSyste
 C:\Users\SyedHaziq\Downloads\LibSystem1\LibSystem1\LibSystem1\obj\Debug\LibSystem1.UserHomePage.resources
 C:\Users\SyedHaziq\Downloads\LibSystem1\LibSystem1\LibSystem1\obj\Debug\LibSystem1.csproj.GenerateResource.Cache
 C:\Users\SyedHaziq\Downloads\LibSystem1\LibSystem1\LibSystem1\obj\Debug\LibSystem1.Login.resources
+C:\Users\SyedHaziq\Downloads\LibSystem1\LibSystem1\LibSystem1\obj\Debug\LibSystem1.adminUserReg.resources

@@ -32,6 +32,7 @@
             this.btnbooks = new System.Windows.Forms.Button();
             this.btnbooksissued = new System.Windows.Forms.Button();
             this.btnauthor = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnmember
@@ -74,11 +75,22 @@
             this.btnauthor.UseVisualStyleBackColor = true;
             this.btnauthor.Click += new System.EventHandler(this.btnauthor_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(245, 329);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(189, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Admin/User Register";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // AdminHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(671, 536);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnauthor);
             this.Controls.Add(this.btnbooksissued);
             this.Controls.Add(this.btnbooks);
@@ -97,6 +109,7 @@
         private System.Windows.Forms.Button btnbooks;
         private System.Windows.Forms.Button btnbooksissued;
         private System.Windows.Forms.Button btnauthor;
+        private System.Windows.Forms.Button button1;
 
     }
 }
