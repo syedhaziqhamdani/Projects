@@ -625,9 +625,13 @@ public class Main extends JFrame {
 		Random rand = new Random();
 		int randomNum = rand.nextInt((6 - 0) + 1) + 0;
 		int emptyCell = 0;
-		for (int i = 0; i < 6; i++) {
-			if (grid[i][randomNum].getText().isEmpty()) {
-				emptyCell = i;
+		boolean a = true;
+		while (a) {
+			for (int i = 0; i < 6; i++) {
+				if (grid[i][randomNum].getText().isEmpty()) {
+					emptyCell = i;
+					a = false;
+				}
 			}
 		}
 		grid[emptyCell][randomNum].setBackground(Color.RED);
