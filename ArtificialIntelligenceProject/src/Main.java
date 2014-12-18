@@ -572,7 +572,11 @@ public class Main extends JFrame {
 		grid[emptyCell][columnNumber].setText(" ");
 		scoreBoard[emptyCell][columnNumber] = 1;
 		// humanWin = checkWinnerHuman();
-		computerMove();
+		if (!horizontalCheck()) {
+			computerMove();
+		} else {
+			JOptionPane.showMessageDialog(contentPane, "You Win.");
+		}
 		// boolean flag = true;
 		// isFirstMove();
 		// while (flag) {
@@ -638,6 +642,7 @@ public class Main extends JFrame {
 		grid[emptyCell][randomNum].setBackground(Color.RED);
 		grid[emptyCell][randomNum].setText(" ");
 		scoreBoard[emptyCell][randomNum] = 2;
+//		JOptionPane.showMessageDialog(contentPane, scoreBoard[emptyCell][randomNum]);
 		if (!grid[0][randomNum].getText().isEmpty()) {
 			if (randomNum==0) {
 				columnOneButton.setEnabled(false);
