@@ -623,10 +623,11 @@ public class Main extends JFrame {
 		// grid[a[0]][a[1]].setText(" ");
 
 		Random rand = new Random();
-		int randomNum = rand.nextInt((6 - 0) + 1) + 0;
+		int randomNum = 0;
 		int emptyCell = 0;
 		boolean a = true;
 		while (a) {
+			randomNum = rand.nextInt((6 - 0) + 1) + 0;
 			for (int i = 0; i < 6; i++) {
 				if (grid[i][randomNum].getText().isEmpty()) {
 					emptyCell = i;
