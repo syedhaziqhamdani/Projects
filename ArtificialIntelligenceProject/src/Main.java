@@ -157,6 +157,7 @@ public class Main extends JFrame {
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		setLocation(dim.width / 2 - getSize().width / 2, dim.height / 2
 				- getSize().height / 2);
+		setIconImage(Toolkit.getDefaultToolkit().getImage("res/logo.png"));
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
