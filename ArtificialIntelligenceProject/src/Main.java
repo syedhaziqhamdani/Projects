@@ -33,6 +33,7 @@ public class Main extends JFrame {
 	static JButton columnFiveButton = new JButton("Drop");
 	static JButton columnSixButton = new JButton("Drop");
 	static JButton columnSevenButton = new JButton("Drop");
+
 	// private JTextField b00;
 	// private JTextField b01;
 	// private JTextField b02;
@@ -188,7 +189,6 @@ public class Main extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		
 		columnOneButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// JOptionPane.showConfirmDialog(contentPane, "Clicked");
@@ -199,7 +199,6 @@ public class Main extends JFrame {
 		columnOneButton.setBounds(10, 11, 89, 23);
 		contentPane.add(columnOneButton);
 
-		
 		columnTwoButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				humanMove(1);
@@ -208,7 +207,6 @@ public class Main extends JFrame {
 		columnTwoButton.setBounds(109, 11, 89, 23);
 		contentPane.add(columnTwoButton);
 
-		
 		columnThreeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				humanMove(2);
@@ -217,7 +215,6 @@ public class Main extends JFrame {
 		columnThreeButton.setBounds(208, 11, 89, 23);
 		contentPane.add(columnThreeButton);
 
-		
 		columnFourButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				humanMove(3);
@@ -226,7 +223,6 @@ public class Main extends JFrame {
 		columnFourButton.setBounds(307, 11, 89, 23);
 		contentPane.add(columnFourButton);
 
-		
 		columnFiveButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				humanMove(4);
@@ -235,7 +231,6 @@ public class Main extends JFrame {
 		columnFiveButton.setBounds(406, 11, 89, 23);
 		contentPane.add(columnFiveButton);
 
-		
 		columnSixButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				humanMove(5);
@@ -572,9 +567,27 @@ public class Main extends JFrame {
 		grid[emptyCell][columnNumber].setText(" ");
 		scoreBoard[emptyCell][columnNumber] = 1;
 		// humanWin = checkWinnerHuman();
-		if (verticalCheck()||horizontalCheck()) {
+		if (verticalCheck() || horizontalCheck() || diagonalCheck()) {
 			JOptionPane.showMessageDialog(contentPane, "You Win.");
+			clearBoard();
 		} else {
+			if (!grid[0][columnNumber].getText().isEmpty()) {
+				if (columnNumber == 0) {
+					columnOneButton.setEnabled(false);
+				} else if (columnNumber == 1) {
+					columnTwoButton.setEnabled(false);
+				} else if (columnNumber == 2) {
+					columnThreeButton.setEnabled(false);
+				} else if (columnNumber == 3) {
+					columnFourButton.setEnabled(false);
+				} else if (columnNumber == 4) {
+					columnFiveButton.setEnabled(false);
+				} else if (columnNumber == 5) {
+					columnSixButton.setEnabled(false);
+				} else if (columnNumber == 6) {
+					columnSevenButton.setEnabled(false);
+				}
+			}
 			computerMove();
 		}
 		// boolean flag = true;
@@ -635,47 +648,57 @@ public class Main extends JFrame {
 			for (int i = 0; i < 6; i++) {
 				if (grid[i][randomNum].getText().isEmpty()) {
 					emptyCell = i;
-//					if (scoreBoard[emptyCell++][randomNum]==2||scoreBoard[emptyCell++][randomNum++]==2||scoreBoard[emptyCell][randomNum++]==2) {
-//						
-//					}
-//					if (ai(emptyCell, randomNum)) {
-						a = false;
-//					}
+					// if
+					// (scoreBoard[emptyCell++][randomNum]==2||scoreBoard[emptyCell++][randomNum++]==2||scoreBoard[emptyCell][randomNum++]==2)
+					// {
+					//
+					// }
+					// if (ai(emptyCell, randomNum)) {
+					a = false;
+					// }
 				}
 			}
 		}
 		grid[emptyCell][randomNum].setBackground(Color.RED);
 		grid[emptyCell][randomNum].setText(" ");
 		scoreBoard[emptyCell][randomNum] = 2;
-//		JOptionPane.showMessageDialog(contentPane, scoreBoard[emptyCell][randomNum]);
-		if (!grid[0][randomNum].getText().isEmpty()) {
-			if (randomNum==0) {
-				columnOneButton.setEnabled(false);
-			} else if (randomNum==1) {
-				columnTwoButton.setEnabled(false);
-			} else if (randomNum==2) {
-				columnThreeButton.setEnabled(false);
-			} else if (randomNum==3) {
-				columnFourButton.setEnabled(false);
-			} else if (randomNum==4) {
-				columnFiveButton.setEnabled(false);
-			} else if (randomNum==5) {
-				columnSixButton.setEnabled(false);
-			} else if (randomNum==6) {
-				columnSevenButton.setEnabled(false);
-			}
-			
-		}
+		if (verticalCheck() || horizontalCheck() || diagonalCheck()) {
+			JOptionPane.showMessageDialog(contentPane, "Computer Win.");
+			clearBoard();
+		} else {
+			// JOptionPane.showMessageDialog(contentPane,
+			// scoreBoard[emptyCell][randomNum]);
+			if (!grid[0][randomNum].getText().isEmpty()) {
+				if (randomNum == 0) {
+					columnOneButton.setEnabled(false);
+				} else if (randomNum == 1) {
+					columnTwoButton.setEnabled(false);
+				} else if (randomNum == 2) {
+					columnThreeButton.setEnabled(false);
+				} else if (randomNum == 3) {
+					columnFourButton.setEnabled(false);
+				} else if (randomNum == 4) {
+					columnFiveButton.setEnabled(false);
+				} else if (randomNum == 5) {
+					columnSixButton.setEnabled(false);
+				} else if (randomNum == 6) {
+					columnSevenButton.setEnabled(false);
+				}
 
+			}
+		}
 		// }
 		// checkWinnerHuman();
 	}
-	static boolean ai(int row, int column){
-		if (scoreBoard[row++][column]==2||scoreBoard[row++][column++]==2||scoreBoard[row][column++]==2) {
+
+	static boolean ai(int row, int column) {
+		if (scoreBoard[row++][column] == 2 || scoreBoard[row++][column++] == 2
+				|| scoreBoard[row][column++] == 2) {
 			return true;
 		}
 		return false;
 	}
+
 	static void clearBoard() {
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 7; j++) {
@@ -684,43 +707,77 @@ public class Main extends JFrame {
 				scoreBoard[i][j] = -1;
 			}
 		}
+		columnOneButton.setEnabled(true);
+		columnTwoButton.setEnabled(true);
+		columnThreeButton.setEnabled(true);
+		columnFourButton.setEnabled(true);
+		columnFiveButton.setEnabled(true);
+		columnSixButton.setEnabled(true);
+		columnSevenButton.setEnabled(true);
 	}
 
 	static boolean horizontalCheck() {
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 4; j++) {
-				if (scoreBoard[i][j] != -1 &&
-						scoreBoard[i][j] == scoreBoard[i][j+1] &&
-								scoreBoard[i][j] == scoreBoard[i][j+2] &&
-										scoreBoard[i][j] == scoreBoard[i][j+3]) {
+				if (scoreBoard[i][j] != -1
+						&& scoreBoard[i][j] == scoreBoard[i][j + 1]
+						&& scoreBoard[i][j] == scoreBoard[i][j + 2]
+						&& scoreBoard[i][j] == scoreBoard[i][j + 3]) {
 					return true;
 				}
 			}
 		}
-//		for (int i = 0; i < 6; i++) {
-//			for (int j = 0; j < 7; j++) {
-//				if (scoreBoard[i][j] == 1 && scoreBoard[i][j + 1] == 1
-//						&& scoreBoard[i][j + 2] == 1
-//						&& scoreBoard[i][j + 3] == 1) {
-////					JOptionPane.showMessageDialog(null, "You Win");
-//					clearBoard();
-//					return true;
-//				}
-//			}
-//		}
+		// for (int i = 0; i < 6; i++) {
+		// for (int j = 0; j < 7; j++) {
+		// if (scoreBoard[i][j] == 1 && scoreBoard[i][j + 1] == 1
+		// && scoreBoard[i][j + 2] == 1
+		// && scoreBoard[i][j + 3] == 1) {
+		// // JOptionPane.showMessageDialog(null, "You Win");
+		// clearBoard();
+		// return true;
+		// }
+		// }
+		// }
 		return false;
 	}
 
 	static boolean verticalCheck() {
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 6; j++) {
-				if (scoreBoard[i][j]!=-1&&scoreBoard[i][j] == scoreBoard[i+1][j]&&
-						scoreBoard[i][j] == scoreBoard[i+2][j]&&
-				        		   scoreBoard[i][j] == scoreBoard[i+3][j]) {
-					clearBoard();
+				if (scoreBoard[i][j] != -1
+						&& scoreBoard[i][j] == scoreBoard[i + 1][j]
+						&& scoreBoard[i][j] == scoreBoard[i + 2][j]
+						&& scoreBoard[i][j] == scoreBoard[i + 3][j]) {
 					return true;
-					
+
 				}
+			}
+		}
+		return false;
+	}
+
+	static boolean diagonalCheck() {
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 4; j++) {
+				if (scoreBoard[i][j] != -1
+						&& scoreBoard[i][j] == scoreBoard[i + 1][j + 1]
+						&& scoreBoard[i][j] == scoreBoard[i + 2][j + 2]
+						&& scoreBoard[i][j] == scoreBoard[i + 3][j + 3]) {
+					return true;
+
+				}
+
+			}
+		}
+		for (int i = 3; i < 6; i++) {
+			for (int j = 0; j < 4; j++) {
+				if (scoreBoard[i][j] != -1
+						&& scoreBoard[i][j] == scoreBoard[i - 1][j + 1]
+						&& scoreBoard[i][j] == scoreBoard[i - 2][j + 2]
+						&& scoreBoard[i][j] == scoreBoard[i - 3][j + 3]) {
+					return true;
+				}
+
 			}
 		}
 		return false;
