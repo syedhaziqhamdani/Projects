@@ -1,5 +1,7 @@
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -19,6 +21,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.Random;
 
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JInternalFrame;
+
 public class Main extends JFrame {
 
 	private static JPanel contentPane;
@@ -34,6 +41,9 @@ public class Main extends JFrame {
 	static JButton columnFiveButton = new JButton("Drop");
 	static JButton columnSixButton = new JButton("Drop");
 	static JButton columnSevenButton = new JButton("Drop");
+	private final JMenu mnHelp = new JMenu("Help");
+	private final JMenuItem mntmHowToPlay = new JMenuItem("How To Play");
+	private final JMenuItem mntmAbout = new JMenuItem("About");
 	/**
 	 * Launch the application.
 	 */
@@ -54,6 +64,7 @@ public class Main extends JFrame {
 	 * Create the frame.
 	 */
 	public Main() {
+		setResizable(false);
 //		ScoreBoard initialization with -1 to represent the unfilled board.
 		scoreBoard[0][0] = -1;
 		scoreBoard[0][1] = -1;
@@ -142,7 +153,48 @@ public class Main extends JFrame {
 		grid[5][6] = new JTextField();
 		setTitle("Four In a Row - AI Project");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 720, 267);
+		setBounds(100, 100, 720, 283);
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		setLocation(dim.width / 2 - getSize().width / 2, dim.height / 2
+				- getSize().height / 2);
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnGame = new JMenu("Game");
+		menuBar.add(mnGame);
+		
+		JMenuItem mntmNewGame = new JMenuItem("New Game");
+		mntmNewGame.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				clearBoard();
+			}
+		});
+		mnGame.add(mntmNewGame);
+		
+		JMenuItem mntmExit = new JMenuItem("Exit");
+		mntmExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+			}
+		});
+		mnGame.add(mntmExit);
+		
+		menuBar.add(mnHelp);
+		mntmHowToPlay.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JOptionPane.showMessageDialog(contentPane, "Click on Drop button to drop a brick in that column.");
+			}
+		});
+		
+		mnHelp.add(mntmHowToPlay);
+		mntmAbout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				About about = new About();
+				about.about();
+			}
+		});
+		
+		mnHelp.add(mntmAbout);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -585,5 +637,4 @@ public class Main extends JFrame {
 		}
 		return false;
 	}
-
 }
