@@ -572,10 +572,10 @@ public class Main extends JFrame {
 		grid[emptyCell][columnNumber].setText(" ");
 		scoreBoard[emptyCell][columnNumber] = 1;
 		// humanWin = checkWinnerHuman();
-		if (!horizontalCheck()) {
-			computerMove();
-		} else {
+		if (verticalCheck()||horizontalCheck()) {
 			JOptionPane.showMessageDialog(contentPane, "You Win.");
+		} else {
+			computerMove();
 		}
 		// boolean flag = true;
 		// isFirstMove();
@@ -635,7 +635,12 @@ public class Main extends JFrame {
 			for (int i = 0; i < 6; i++) {
 				if (grid[i][randomNum].getText().isEmpty()) {
 					emptyCell = i;
-					a = false;
+//					if (scoreBoard[emptyCell++][randomNum]==2||scoreBoard[emptyCell++][randomNum++]==2||scoreBoard[emptyCell][randomNum++]==2) {
+//						
+//					}
+//					if (ai(emptyCell, randomNum)) {
+						a = false;
+//					}
 				}
 			}
 		}
@@ -665,7 +670,12 @@ public class Main extends JFrame {
 		// }
 		// checkWinnerHuman();
 	}
-
+	static boolean ai(int row, int column){
+		if (scoreBoard[row++][column]==2||scoreBoard[row++][column++]==2||scoreBoard[row][column++]==2) {
+			return true;
+		}
+		return false;
+	}
 	static void clearBoard() {
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 7; j++) {
@@ -678,28 +688,38 @@ public class Main extends JFrame {
 
 	static boolean horizontalCheck() {
 		for (int i = 0; i < 6; i++) {
-			for (int j = 0; j < 7; j++) {
-				if (scoreBoard[i][j] == 1 && scoreBoard[i][j + 1] == 1
-						&& scoreBoard[i][j + 2] == 1
-						&& scoreBoard[i][j + 3] == 1) {
-					JOptionPane.showMessageDialog(null, "You Win");
-					clearBoard();
+			for (int j = 0; j < 4; j++) {
+				if (scoreBoard[i][j] != -1 &&
+						scoreBoard[i][j] == scoreBoard[i][j+1] &&
+								scoreBoard[i][j] == scoreBoard[i][j+2] &&
+										scoreBoard[i][j] == scoreBoard[i][j+3]) {
 					return true;
 				}
 			}
 		}
+//		for (int i = 0; i < 6; i++) {
+//			for (int j = 0; j < 7; j++) {
+//				if (scoreBoard[i][j] == 1 && scoreBoard[i][j + 1] == 1
+//						&& scoreBoard[i][j + 2] == 1
+//						&& scoreBoard[i][j + 3] == 1) {
+////					JOptionPane.showMessageDialog(null, "You Win");
+//					clearBoard();
+//					return true;
+//				}
+//			}
+//		}
 		return false;
 	}
 
 	static boolean verticalCheck() {
-		for (int i = 0; i < 6; i++) {
-			for (int j = 0; j < 7; j++) {
-				if (scoreBoard[i][j] == 1 && scoreBoard[i + 1][j] == 1
-						&& scoreBoard[i + 2][j] == 1
-						&& scoreBoard[i + 3][j] == 1) {
-					JOptionPane.showMessageDialog(null, "You Win");
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 6; j++) {
+				if (scoreBoard[i][j]!=-1&&scoreBoard[i][j] == scoreBoard[i+1][j]&&
+						scoreBoard[i][j] == scoreBoard[i+2][j]&&
+				        		   scoreBoard[i][j] == scoreBoard[i+3][j]) {
 					clearBoard();
 					return true;
+					
 				}
 			}
 		}
