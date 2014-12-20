@@ -1,39 +1,29 @@
-import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
-
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-import javax.swing.JTextField;
-
-import sun.org.mozilla.javascript.internal.ast.ForInLoop;
-import sun.swing.MenuItemLayoutHelper.ColumnAlignment;
-
-import com.sun.org.apache.xpath.internal.axes.ReverseAxesWalker;
-import com.sun.org.apache.xpath.internal.operations.Equals;
-
-import java.awt.Color;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
 
-import javax.swing.JMenuBar;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
 public class Main extends JFrame {
 
 	private static JPanel contentPane;
-//	2D Array of JTestFields.
+	// 2D Array of JTestFields.
 	private static JTextField[][] grid = new JTextField[6][7];
-// 2D Integer array for scoring.
+	// 2D Integer array for scoring.
 	private static int[][] scoreBoard = new int[6][7];
-// Disk drop buttons for seven columns.
+	// Disk drop buttons for seven columns.
 	static JButton columnOneButton = new JButton("Drop");
 	static JButton columnTwoButton = new JButton("Drop");
 	static JButton columnThreeButton = new JButton("Drop");
@@ -44,6 +34,7 @@ public class Main extends JFrame {
 	private final JMenu mnHelp = new JMenu("Help");
 	private final JMenuItem mntmHowToPlay = new JMenuItem("How To Play");
 	private final JMenuItem mntmAbout = new JMenuItem("About");
+
 	/**
 	 * Launch the application.
 	 */
@@ -65,7 +56,7 @@ public class Main extends JFrame {
 	 */
 	public Main() {
 		setResizable(false);
-//		ScoreBoard initialization with -1 to represent the unfilled board.
+		// ScoreBoard initialization with -1 to represent the unfilled board.
 		scoreBoard[0][0] = -1;
 		scoreBoard[0][1] = -1;
 		scoreBoard[0][2] = -1;
@@ -108,7 +99,7 @@ public class Main extends JFrame {
 		scoreBoard[5][4] = -1;
 		scoreBoard[5][5] = -1;
 		scoreBoard[5][6] = -1;
-// Initializing 2D JTextField Array with TextFields.		
+		// Initializing 2D JTextField Array with TextFields.
 		grid[0][0] = new JTextField();
 		grid[0][1] = new JTextField();
 		grid[0][2] = new JTextField();
@@ -160,10 +151,10 @@ public class Main extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("res/logo.png"));
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
-		
+
 		JMenu mnGame = new JMenu("Game");
 		menuBar.add(mnGame);
-		
+
 		JMenuItem mntmNewGame = new JMenuItem("New Game");
 		mntmNewGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -171,7 +162,7 @@ public class Main extends JFrame {
 			}
 		});
 		mnGame.add(mntmNewGame);
-		
+
 		JMenuItem mntmExit = new JMenuItem("Exit");
 		mntmExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -179,14 +170,15 @@ public class Main extends JFrame {
 			}
 		});
 		mnGame.add(mntmExit);
-		
+
 		menuBar.add(mnHelp);
 		mntmHowToPlay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JOptionPane.showMessageDialog(contentPane, "Click on Drop button to drop a brick in that column.");
+				JOptionPane.showMessageDialog(contentPane,
+						"Click on Drop button to drop a brick in that column.");
 			}
 		});
-		
+
 		mnHelp.add(mntmHowToPlay);
 		mntmAbout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -194,7 +186,7 @@ public class Main extends JFrame {
 				about.about();
 			}
 		});
-		
+
 		mnHelp.add(mntmAbout);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -468,7 +460,7 @@ public class Main extends JFrame {
 		contentPane.add(grid[5][6]);
 	}
 
-// Human move Method
+	// Human move Method
 	static void humanMove(int columnNumber) {
 		int emptyCell = 0;
 		for (int i = 0; i < 6; i++) {
@@ -503,27 +495,8 @@ public class Main extends JFrame {
 			computerMove();
 		}
 	}
-// Generate a random number between 0-6 and check the cell's availability
-	static int[] generateRandom() {
-		int[] computerMoveBox = new int[2];
-		Random rand = new Random();
-		int randomColumn = rand.nextInt((6 - 0) + 1) + 0;
-		int emptyCell = 0;
-		for (int i = 0; i < 6; i++) {
-			if (grid[i][randomColumn].getText().isEmpty()) {
-				emptyCell = i;
-			}
-		}
-		if (grid[emptyCell][randomColumn].getText().isEmpty()) {
-			computerMoveBox[0] = emptyCell;
-			computerMoveBox[0] = randomColumn;
-			return computerMoveBox;
-		} else {
-			generateRandom();
-		}
-		return null;
-	}
-// Computer Move Method
+
+	// Computer Move Method
 	static void computerMove() {
 		Random rand = new Random();
 		int randomNum = 0;
@@ -565,7 +538,8 @@ public class Main extends JFrame {
 			}
 		}
 	}
-// Board Reset Method
+
+	// Board Reset Method
 	static void clearBoard() {
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 7; j++) {
@@ -582,7 +556,8 @@ public class Main extends JFrame {
 		columnSixButton.setEnabled(true);
 		columnSevenButton.setEnabled(true);
 	}
-// Winner Checking Methods
+
+	// Winner Checking Methods
 	static boolean horizontalCheck() {
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 4; j++) {

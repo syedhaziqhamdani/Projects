@@ -1,35 +1,28 @@
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import java.awt.Dialog.ModalityType;
-
 import javax.swing.JLabel;
-
-import java.awt.Font;
-
+import javax.swing.JPanel;
 import javax.swing.JSeparator;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
+import javax.swing.border.EmptyBorder;
 
 public class About extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	static About dialog = new About();
+
 	/**
 	 * Launch the application.
 	 */
 	public void about() {
 		try {
-//			About dialog = new About();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setModal(true);
 			dialog.setVisible(true);
@@ -55,7 +48,7 @@ public class About extends JDialog {
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
-		
+
 		JLabel lblNewLabel = new JLabel("Artificial Intelligence Project");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 34));
 		lblNewLabel.setBounds(10, 11, 424, 79);
@@ -67,7 +60,8 @@ public class About extends JDialog {
 			contentPanel.add(lblGroupMembers);
 		}
 		{
-			JLabel lblSyedMuhammadHaziq = new JLabel("Syed Muhammad Haziq Ali Shah 18290");
+			JLabel lblSyedMuhammadHaziq = new JLabel(
+					"Syed Muhammad Haziq Ali Shah 18290");
 			lblSyedMuhammadHaziq.setBounds(10, 155, 230, 14);
 			contentPanel.add(lblSyedMuhammadHaziq);
 		}
